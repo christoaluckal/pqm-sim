@@ -1,4 +1,13 @@
-husky
+
+## Using PQM Simulator
+
+Drop packages in your workspace
+
+Use `roslaunch husky_pqm pqm.launch` to launch world
+
+Once gazebo is running, inserts worlds from `./worlds` and select the world in gazebo
+
+<!-- husky
 =====
 
 Common ROS packages for the Clearpath Husky, useable for both simulation and
@@ -29,4 +38,4 @@ Simulator ROS packages for the Clearpath Husky.
 
  - husky_pqm : Gazebo plugin definitions and extensions to the robot URDF.
 
-For Husky instructions and tutorials, please see http://wiki.ros.org/Robots/Husky
+For Husky instructions and tutorials, please see http://wiki.ros.org/Robots/Husky -->
