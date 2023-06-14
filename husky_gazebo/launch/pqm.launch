@@ -25,7 +25,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 -->
 <launch>
 
-  <arg name="world_name" default="/home/yashturkar/catkin_ws/src/husky/husky_gazebo/worlds/mai_gazebo.world"/>
+  <arg name="world_name" default="/home/yashturkar/p_ws/src/pqm-sim/husky_gazebo/worlds/warehouse_full.world"/>
   <!-- Load Gazebo Model -->
   <!-- <node name="spawn_sdf" pkg="gazebo_ros" type="spawn_sdf_model" args="-sdf -file $(find husky_pqm)/models/Village.sdf -model Village"/> -->
 
