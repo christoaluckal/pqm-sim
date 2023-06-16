@@ -7,6 +7,8 @@ Use `roslaunch husky_pqm pqm.launch` to launch world
 
 Once gazebo is running, inserts worlds from `./worlds` and select the world in gazebo
 
+Simulation env. based on Clearpath's Husky -> [husky_customization](https://github.com/husky/husky_customization).
+
 <!-- husky
 =====
 
