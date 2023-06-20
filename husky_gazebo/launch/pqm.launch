@@ -38,6 +38,15 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     <arg name="debug" value="false"/>
   </include>
 
+  <arg name='joy_control' default='true' />
+  <group if='$(arg joy_control)'>
+    <node name='joy_plugin' pkg='joy' type='joy_node'>
+      <!-- <param name='autorepeat_rate' value='20.0' /> -->
+    </node>
+    <!-- args are max_speed and rads -->
+    <node name='joy_control_node' pkg='husky_control' type='joy_twist.py' args='10 1' />
+  </group>
+
   <include file="$(find husky_pqm)/launch/spawn_husky.launch">
   </include>
 
