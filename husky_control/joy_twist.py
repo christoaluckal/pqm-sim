@@ -4,6 +4,7 @@ from geometry_msgs.msg import Twist
 from sensor_msgs.msg import Joy
 import sys
 import math
+from std_srvs.srv import SetBool
 
 # max_speed and max_angle are values that make the calculations normalized
 # Checks for user inputted values, if none are provided, defaults to max speed: 10 m/s and max angle: 45 degrees
@@ -37,6 +38,16 @@ def callback(data):
         Sets: Global variables throttle_ms and steering_angle for AckermannDrive message speed and steering angle values
     '''
     global throttle_ms,steering_angle,max_speed,max_angle,original_speed,start_input
+
+    rospy.wait_for_service("/reset_car")
+    reset = rospy.ServiceProxy("/reset_car", SetBool)
+
+    if data.buttons[1]:
+        try:
+            reset_status = reset(True)
+            rospy.sleep(0.5)
+        except rospy.ServiceException as e:
+            rospy.signal_shutdown("Could not reset world")
 
     # Values from joystick
     throttle_input = data.axes[5]

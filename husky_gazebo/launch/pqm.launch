@@ -38,6 +38,8 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     <arg name="debug" value="false"/>
   </include>
 
+  <node pkg="husky_control" name="reset_husky_node" type="reset_husky.py" output="screen"/>
+
   <arg name='joy_control' default='true' />
   <group if='$(arg joy_control)'>
     <node name='joy_plugin' pkg='joy' type='joy_node'>
