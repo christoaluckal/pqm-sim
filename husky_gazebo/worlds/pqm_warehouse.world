@@ -116,7 +116,7 @@
             <izz>0.166667</izz>
           </inertia>
         </inertial>
-        <pose>-0.885345 -0.579822 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <visual name='visual'>
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
@@ -198,13 +198,13 @@
       </link>
       <static>1</static>
       <allow_auto_disable>1</allow_auto_disable>
-      <pose>2.01707 4.57579 0 0 -0 0</pose>
+      <pose>-0.061613 -0.864845 0 0 -0 0</pose>
     </model>
     <state world_name='default'>
-      <sim_time>99 34000000</sim_time>
-      <real_time>99 859296975</real_time>
-      <wall_time>1687406916 423045191</wall_time>
-      <iterations>99034</iterations>
+      <sim_time>115 276000000</sim_time>
+      <real_time>116 410706933</real_time>
+      <wall_time>1689612890 645238138</wall_time>
+      <iterations>115276</iterations>
       <model name='ground_plane'>
         <pose>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -216,16 +216,16 @@
         </link>
       </model>
       <model name='pqm_warehouse'>
-        <pose>2.01711 -2.02557 0 0 0 -1.57079</pose>
+        <pose>7.41781 -0.841315 0 0 0 -1.56765</pose>
         <scale>1 1 1</scale>
         <link name='body'>
-          <pose>2.01711 -2.02557 0 0 0 -1.57079</pose>
+          <pose>7.41781 -0.841315 0 0 0 -1.56765</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
         <link name='link_0'>
-          <pose>1.43728 -1.14023 0 0 0 -1.57079</pose>
+          <pose>7.41781 -0.841315 0 0 0 -1.56765</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -237,7 +237,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>-53.636 4.96981 10.1826 -0 0.183643 0.0162</pose>
+        <pose>1.45211 -13.1481 6.70205 0 0.424998 1.19372</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>

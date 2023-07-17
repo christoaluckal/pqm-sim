@@ -168,7 +168,7 @@ Changelog for package husky_description
 * Add argument to enable/disable top plate
 * Fix sensor arch name
 * Fix conflict with underlay
-  When using -z check, underlayed instances of husky_pqm would override overlays.
+  Fix conflict with underlay When using -z check, underlayed instances of husky_gazebo would override overlays.
 * Update top plate model
 * Contributors: Paul Bovbel
 
@@ -211,7 +211,7 @@ Changelog for package husky_description
 * Major refactor for indigo release:
   * base_link is now located on the ground plane, while chassis_link
   * refactored joint names for consistency with Jackal and Grizzly for ros_control
-  * moved plugins requiring gazebo dependencies to husky_pqm (imu, gps, lidar, ros_control)
+  * requiring gazebo dependencies to husky_gazebo (imu, gps, lidar, ros_control)
   * initial prefixing for multirobot
 * Contributors: Alex Bencz, James Servos, Mike Purvis, Paul Bovbel, Prasenjit Mukherjee, y22ma
 

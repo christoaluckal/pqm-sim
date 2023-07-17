@@ -79,21 +79,16 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   <xacro:arg name="laser_3d_secondary_rpy"        default="$(optenv HUSKY_LASER_3D_SECONDARY_RPY 0 0 -3.14159)" />
 
 <!-- Ouster LiDAR Primary and Secondary -->
-  <xacro:arg name="OUSTER_3D_enabled"              default="$(optenv HUSKY_OUSTER_3D_ENABLED 1)" />
-  <xacro:arg name="OUSTER_3D_topic"                default="$(optenv HUSKY_OUSTER_3D_TOPIC ouster_points)"/>
-  <xacro:arg name="OUSTER_3D_tower"                default="$(optenv HUSKY_OUSTER_3D_TOWER 1)"/>
-  <xacro:arg name="OUSTER_3D_prefix"               default="$(optenv HUSKY_OUSTER_3D_PREFIX )"/>
-  <xacro:arg name="OUSTER_3D_parent"               default="$(optenv HUSKY_OUSTER_3D_PARENT top_plate_link)"/>
-  <xacro:arg name="OUSTER_3D_xyz"                  default="$(optenv HUSKY_OUSTER_3D_XYZ 0 0 0)" />
-  <xacro:arg name="OUSTER_3D_rpy"                  default="$(optenv HUSKY_OUSTER_3D_RPY 0 0 0)" />
+  <!-- No LiDAR = 0
+  OS1 = 1
+  OS2 = 2
+  OS0 = 3
+  -->
+  <xacro:arg name="OUSTER_OS"              default="$(optenv HUSKY_OUSTER 0)" />
+  <!-- <xacro:arg name="OUSTER_OS2_enabled"              default="$(optenv HUSKY_OUSTER_OS2_ENABLED 0)" /> -->
+  <!-- <xacro:arg name="OUSTER_OS0_enabled"              default="$(optenv HUSKY_OUSTER_OS0_ENABLED 0)" /> -->
+  
 
-  <xacro:arg name="OUSTER_3D_secondary_enabled"    default="$(optenv HUSKY_OUSTER_3D_SECONDARY_ENABLED 0)" />
-  <xacro:arg name="OUSTER_3D_secondary_topic"      default="$(optenv HUSKY_OUSTER_3D_SECONDARY_TOPIC ouster_secondary_points)"/>
-  <xacro:arg name="OUSTER_3D_secondary_tower"      default="$(optenv HUSKY_OUSTER_3D_SECONDARY_TOWER 1)"/>
-  <xacro:arg name="OUSTER_3D_secondary_prefix"     default="$(optenv HUSKY_OUSTER_3D_SECONDARY_PREFIX secondary_)"/>
-  <xacro:arg name="OUSTER_3D_secondary_parent"     default="$(optenv HUSKY_OUSTER_3D_SECONDARY_PARENT top_plate_link)"/>
-  <xacro:arg name="OUSTER_3D_secondary_xyz"        default="$(optenv HUSKY_OUSTER_3D_SECONDARY_XYZ 0 0 0)" />
-  <xacro:arg name="OUSTER_3D_secondary_rpy"        default="$(optenv HUSKY_OUSTER_3D_SECONDARY_RPY 0 0 -3.14159)" />
 
   <!-- Realsense Camera Primary and Secondary -->
   <xacro:arg name="realsense_enabled"             default="$(optenv HUSKY_REALSENSE_ENABLED 0)" />
@@ -119,13 +114,6 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   <xacro:arg name="blackfly_xyz"                      default="$(optenv HUSKY_BLACKFLY_XYZ 0 0 0)"/>
   <xacro:arg name="blackfly_rpy"                      default="$(optenv HUSKY_BLACKFLY_RPY 0 0 0)"/>
 
-  <xacro:arg name="blackfly_secondary_enabled"        default="$(optenv HUSKY_BLACKFLY_SECONDARY 0)"/>
-  <xacro:arg name="blackfly_secondary_mount_enabled"  default="$(optenv HUSKY_BLACKFLY_SECONDARY_MOUNT_ENABLED 1)"/>
-  <xacro:arg name="blackfly_secondary_mount_angle"    default="$(optenv HUSKY_BLACKFLY_SECONDARY_MOUNT_ANGLE 0)"/>
-  <xacro:arg name="blackfly_secondary_prefix"         default="$(optenv HUSKY_BLACKFLY_SECONDARY_PREFIX blackfly_secondary)"/>
-  <xacro:arg name="blackfly_secondary_parent"         default="$(optenv HUSKY_BLACKFLY_SECONDARY_PARENT top_plate_link)"/>
-  <xacro:arg name="blackfly_secondary_xyz"            default="$(optenv HUSKY_BLACKFLY_SECONDARY_XYZ 0 0 0)"/>
-  <xacro:arg name="blackfly_secondary_rpy"            default="$(optenv HUSKY_BLACKFLY_SECONDARY_RPY 0 0 0)"/>
 
   <!-- Bumper Extension -->
   <xacro:property name="husky_front_bumper_extend"  value="$(optenv HUSKY_FRONT_BUMPER_EXTEND 0)" />
@@ -153,15 +141,11 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   <xacro:include filename="$(find husky_description)/urdf/decorations.urdf.xacro" />
   <xacro:include filename="$(find husky_description)/urdf/wheel.urdf.xacro" />
 
-  <xacro:include filename="$(find ouster_description)/urdf/OS1-128.urdf.xacro"/>
-  <xacro:OS1-128 parent="top_plate_link" name="ouster" topic="/ouster_points" organize_cloud="false" hz="10" samples="2048" gpu="true">
-    <origin xyz="0 0 0.1" rpy="0 0 0" />
-  </xacro:OS1-128>
-
-  <!-- <xacro:include filename="$(find ouster_description)/urdf/OS1-64.urdf.xacro"/>
-  <xacro:OS1-128 parent="top_plate_link" name="ouster" topic="/ouster_points" organize_cloud="false" hz="10" samples="1024" gpu="true">
-    <origin xyz="0 0 0.1" rpy="0 0 0" />
+  <!-- <xacro:include filename="$(find ouster_description)/urdf/OS2-128.urdf.xacro"/>
+  <xacro:OS1-128 parent="top_plate_link" name="ouster">
+    <origin xyz="0 0 0.075" rpy="0 0 0" />
   </xacro:OS1-128> -->
+
 
   <xacro:property name="M_PI" value="3.14159"/>
 
@@ -324,14 +308,6 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     </xacro:flir_blackfly_mount>
   </xacro:if>
 
-  <xacro:if value="$(arg blackfly_secondary_enabled)">
-    <xacro:flir_blackfly_mount prefix="$(arg blackfly_secondary_prefix)"
-                                parent="$(arg blackfly_secondary_parent)"
-                                mount_enabled="$(arg blackfly_secondary_mount_enabled)"
-                                mount_angle="$(arg blackfly_secondary_mount_angle)">
-      <origin xyz="$(arg blackfly_secondary_xyz)" rpy="$(arg blackfly_secondary_rpy)"/>
-    </xacro:flir_blackfly_mount>
-  </xacro:if>
 
   <!--
     Velodyne 3D LiDAR Primary and Secondary
@@ -363,33 +339,34 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   </xacro:if>
 
   <!--
-    Ouster 3D LiDAR Primary and Secondary
+    Ouster OS LiDAR
   -->
-  <!-- <xacro:if value="$(arg OUSTER_3D_enabled)">
-    <xacro:if value="$(arg OUSTER_3D_tower)">
-      <xacro:vlp16_mount prefix="$(arg OUSTER_3D_prefix)" parent_link="$(arg OUSTER_3D_parent)" topic="$(arg OUSTER_3D_topic)">
-        <origin xyz="$(arg OUSTER_3D_xyz)" rpy="$(arg OUSTER_3D_rpy)" />
-      </xacro:vlp16_mount>
-    </xacro:if>
-    <xacro:unless value="$(arg OUSTER_3D_tower)">
-      <xacro:VLP-16 parent="$(arg OUSTER_3D_parent)" topic="$(arg OUSTER_3D_topic)" name="$(arg OUSTER_3D_prefix)ouster">
-        <origin xyz="$(arg OUSTER_3D_xyz)" rpy="$(arg OUSTER_3D_rpy)" />
-      </xacro:VLP-16>
-    </xacro:unless>
+  <xacro:property name="model" value="$(arg OUSTER_OS)"/>
+  <xacro:if value="${model == 1}">
+    <xacro:include filename="$(find ouster_description)/urdf/OS1-128.urdf.xacro"/>
+    <xacro:OS1-128 parent="top_plate_link" name="ouster">
+      <origin xyz="0 0 0.075" rpy="0 0 0" />
+    </xacro:OS1-128>
+  </xacro:if>
+  <xacro:if value="${model == 2}">
+    <xacro:include filename="$(find ouster_description)/urdf/OS2-128.urdf.xacro"/>
+    <xacro:OS2-128 parent="top_plate_link" name="ouster">
+      <origin xyz="0 0 0.075" rpy="0 0 0" />
+    </xacro:OS2-128>
+  </xacro:if>
+  <xacro:if value="${model == 3}">
+    <xacro:include filename="$(find ouster_description)/urdf/OS0-128.urdf.xacro"/>
+    <xacro:OS0-128 parent="top_plate_link" name="ouster">
+      <origin xyz="0 0 0.075" rpy="0 0 0" />
+    </xacro:OS0-128>
+  </xacro:if>
+  <xacro:if value="${model == 4}">
+    <xacro:include filename="$(find ouster_description)/urdf/OSD-128.urdf.xacro"/>
+    <xacro:OSD-128 parent="top_plate_link" name="ouster">
+      <origin xyz="0 0 0.075" rpy="0 0 0" />
+    </xacro:OSD-128>
   </xacro:if>
 
-  <xacro:if value="$(arg OUSTER_3D_secondary_enabled)">
-    <xacro:if value="$(arg OUSTER_3D_secondary_tower)">
-      <xacro:vlp16_mount prefix="$(arg OUSTER_3D_secondary_prefix)" parent_link="$(arg OUSTER_3D_secondary_parent)" topic="$(arg OUSTER_3D_secondary_topic)">
-        <origin xyz="$(arg OUSTER_3D_secondary_xyz)" rpy="$(arg OUSTER_3D_secondary_rpy)" />
-      </xacro:vlp16_mount>
-    </xacro:if>
-    <xacro:unless value="$(arg OUSTER_3D_secondary_tower)">
-      <xacro:VLP-16 parent="$(arg OUSTER_3D_secondary_parent)" topic="$(arg OUSTER_3D_secondary_topic)" name="$(arg OUSTER_3D_secondary_prefix)ouster">
-        <origin xyz="$(arg OUSTER_3D_secondary_xyz)" rpy="$(arg OUSTER_3D_secondary_rpy)" />
-      </xacro:VLP-16>
-    </xacro:unless>
-  </xacro:if> -->
 
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">

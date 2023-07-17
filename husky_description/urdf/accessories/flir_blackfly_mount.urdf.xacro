@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:include filename="$(find fath_pivot_mount_description)/urdf/lockmount.urdf.xacro"/>
+  <!-- Using local flir_camera_description package instead of the one from the ROS distribution. -->
   <xacro:include filename="$(find flir_camera_description)/urdf/flir_blackflys.urdf.xacro"/>
 
   <xacro:macro name="flir_blackfly_mount" params="prefix:=blackfly 
