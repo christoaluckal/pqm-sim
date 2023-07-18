@@ -1,11 +1,10 @@
 
 ## Using PQM Simulator
 
-Drop packages in your workspace
+- Extract the models from the `worlds/pqm_models.zip` into the `~/.gazebo/models` folder
+- Build and source this package
+- To run the simulator, use the command `roslaunch husky_pqm pqm_warehouse.launch`
 
-Use `roslaunch husky_pqm pqm.launch` to launch world
-
-Once gazebo is running, inserts worlds from `./worlds` and select the world in gazebo
 
 Simulation env. based on Clearpath's Husky -> [husky_customization](https://github.com/husky/husky_customization).
 
