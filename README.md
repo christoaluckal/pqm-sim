@@ -8,14 +8,45 @@
     - Mai City: `roslaunch husky_pqm pqm_mai.launch`
 
 ### Configuration ###
+| Sensor | FOV |
+| ------ | ------ |
+| OS-0    | [-45, 45] |
+| OS-1    | [-22.5, 22.5] |
+| OS-2    | [-11.25,11,25] |
 
-| Sensor  | FOV | Env Variable |
-| ------------- | ------------- | ------------- |
-| Camera  | -  | `export HUSKY_BLACKFLY=1` | 
-| OS-1  | [-22.5, 22.5]  | `export HUSKY_OUSTER=1` | 
-| OS-2  | [-11.25, 11.25]  | `export HUSKY_OUSTER=2` |
-| OS-0  | [-45, 45]  | `export HUSKY_OUSTER=3` |
-| OS-D  | [0, 90]  | `export HUSKY_OUSTER=4` |
+Removed OS-D
+
+ Env Variable | Sensor  | Noise | Beams    |
+| ------------- | ------------- | ------------- | ------------- |
+| 1  | OS-1 |  128 | 0.008
+| 2  | OS-2 | 128 | 0.008
+| 3  | OS-0 | 128 | 0.008
+| 4 | OS-1 |  64 | 0.008
+| 5  | OS-2 | 64 | 0.008
+| 6  | OS-0 |  64 | 0.008
+| 7  | OS-1 | 32 | 0.008
+| 8  | OS-2 | 32 | 0.008
+| 9  | OS-0 | 32 | 0.008
+| 10  | OS-1 |  128 | 0.0113
+| 11  | OS-2 | 128 | 0.0113
+| 12  | OS-0 | 128 | 0.0113
+| 13 | OS-1 |  64 | 0.0113
+| 14  | OS-2 | 64 | 0.0113
+| 15  | OS-0 |  64 | 0.0113
+| 16 | OS-1 | 32 | 0.0113
+| 17 | OS-2 | 32 | 0.0113
+| 18  | OS-0 | 32 | 0.0113
+| 19  | OS-1 |  128 | 0.016
+| 20  | OS-2 | 128 | 0.016
+| 21  | OS-0 | 128 | 0.016
+| 22 | OS-1 |  64 | 0.016
+| 23  | OS-2 | 64 | 0.016
+| 24  | OS-0 |  64 | 0.016
+| 25 | OS-1 | 32 | 0.016
+| 26 | OS-2 | 32 | 0.016
+| 27  | OS-0 | 32 | 0.016
+
+
 
 Disable Camera and LiDAR using `export HUSKY_BLACKFLY=0` `export HUSKY_OUSTER=0`
 <br>
@@ -24,7 +55,7 @@ Disable Camera and LiDAR using `export HUSKY_BLACKFLY=0` `export HUSKY_OUSTER=0`
 ![OS-1](images/OS_1.png)
 ![OS-2](images/OS_2.png)
 ![OS-3](images/OS_3.png)
-![OS-D](images/OS_D.png)
+<!--![OS-D](images/OS_D.png)-->
 
 Simulation env. based on Clearpath's Husky -> [husky_customization](https://github.com/husky/husky_customization).
 
