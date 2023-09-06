@@ -14,6 +14,12 @@
 | OS-1    | [-22.5, 22.5] |
 | OS-2    | [-11.25,11,25] |
 
+| Noise-Name | Value |
+| ------ | ------ |
+| N1 | 0.008 |
+| N2 | 0.0113 |
+| N3 | 0.016 |
+
 Removed OS-D
 
  Env Variable | Sensor  | Noise | Beams    |
