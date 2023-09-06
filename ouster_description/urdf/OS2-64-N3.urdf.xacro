@@ -1,9 +1,7 @@
 <?xml version="1.0"?>
-<!-- <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="OS1-128"> -->
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="OS2-128">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="OS2-64-N3">
   <xacro:property name="M_PI" value="3.1415926535897931" />
-  <!-- <xacro:macro name="OS1-128" params="*origin parent:=base_link name:=ouster topic:=/ouster_points organize_cloud:=true hz:=10 lasers:=128 samples:=2048 collision_range:=0.8 min_range:=0.8 max_range:=200.0 noise:=0.008 min_angle:=-${M_PI} max_angle:=${M_PI} gpu:=true"> -->
-  <xacro:macro name="OS2-128" params="*origin parent:=base_link name:=ouster topic:=/ouster_points organize_cloud:=true hz:=10 lasers:=128 samples:=2048 collision_range:=0.8 min_range:=0.8 max_range:=200.0 noise:=0.008 min_angle:=-${M_PI} max_angle:=${M_PI} gpu:=true">
+  <xacro:macro name="OS2-64-N3" params="*origin parent:=base_link name:=ouster topic:=/ouster_points organize_cloud:=true hz:=10 lasers:=64 samples:=2048 collision_range:=0.5 min_range:=0.5 max_range:=90.0 noise:=0.0016 min_angle:=-${M_PI} max_angle:=${M_PI} gpu:=true">
 
     <joint name="${name}_base_mount_joint" type="fixed">
       <xacro:insert_block name="origin" /> 
@@ -21,7 +19,7 @@
       </inertial>
       <visual>
         <geometry>
-          <mesh filename="package://ouster_description/meshes/OS2.dae" />
+          <mesh filename="package://ouster_description/meshes/OS1.dae" />
         </geometry>
       </visual>
       <collision>
@@ -47,7 +45,7 @@
       <visual>
         <origin xyz="0 0 -0.09081" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://ouster_description/meshes/OS2.dae" />
+          <mesh filename="package://ouster_description/meshes/OS1.dae" />
         </geometry>
       </visual>
     </link>

@@ -349,170 +349,22 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     </xacro:OS1-128-N1>
   </xacro:if>
   <xacro:if value="${model == 2}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS2-128-N1.urdf.xacro"/>
-    <xacro:OS2-128-N1 parent="top_plate_link" name="ouster">
+    <xacro:include filename="$(find ouster_description)/urdf/OS2-128.urdf.xacro"/>
+    <xacro:OS2-128 parent="top_plate_link" name="ouster">
       <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS2-128-N1>
+    </xacro:OS2-128>
   </xacro:if>
   <xacro:if value="${model == 3}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS0-128-N1.urdf.xacro"/>
-    <xacro:OS0-128-N1 parent="top_plate_link" name="ouster">
+    <xacro:include filename="$(find ouster_description)/urdf/OS0-128.urdf.xacro"/>
+    <xacro:OS0-128 parent="top_plate_link" name="ouster">
       <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS0-128-N1>
+    </xacro:OS0-128>
   </xacro:if>
-
   <xacro:if value="${model == 4}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS1-64-N1.urdf.xacro"/>
-    <xacro:OS1-64-N1 parent="top_plate_link" name="ouster">
+    <xacro:include filename="$(find ouster_description)/urdf/OSD-128.urdf.xacro"/>
+    <xacro:OSD-128 parent="top_plate_link" name="ouster">
       <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS1-64-N1>
-  </xacro:if>
-  <xacro:if value="${model == 5}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS2-64-N1.urdf.xacro"/>
-    <xacro:OS2-64-N1 parent="top_plate_link" name="ouster">
-      <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS2-64-N1>
-  </xacro:if>
-  <xacro:if value="${model == 6}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS0-64-N1.urdf.xacro"/>
-    <xacro:OS0-64-N1 parent="top_plate_link" name="ouster">
-      <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS0-64-N1>
-  </xacro:if>
-
-  <xacro:if value="${model == 7}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS1-32-N1.urdf.xacro"/>
-    <xacro:OS1-32-N1 parent="top_plate_link" name="ouster">
-      <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS1-32-N1>
-  </xacro:if>
-  <xacro:if value="${model == 8}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS2-32-N1.urdf.xacro"/>
-    <xacro:OS2-32-N1 parent="top_plate_link" name="ouster">
-      <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS2-32-N1>
-  </xacro:if>
-  <xacro:if value="${model == 9}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS0-32-N1.urdf.xacro"/>
-    <xacro:OS0-32-N1 parent="top_plate_link" name="ouster">
-      <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS0-32-N1>
-  </xacro:if>
-
-  <xacro:property name="model" value="$(arg OUSTER_OS)"/>
-  <xacro:if value="${model == 10}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS1-128-N2.urdf.xacro"/>
-    <xacro:OS1-128-N2 parent="top_plate_link" name="ouster">
-      <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS1-128-N2>
-  </xacro:if>
-  <xacro:if value="${model == 11}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS2-128-N2.urdf.xacro"/>
-    <xacro:OS2-128-N2 parent="top_plate_link" name="ouster">
-      <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS2-128-N2>
-  </xacro:if>
-  <xacro:if value="${model == 12}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS0-128-N2.urdf.xacro"/>
-    <xacro:OS0-128-N2 parent="top_plate_link" name="ouster">
-      <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS0-128-N2>
-  </xacro:if>
-
-  <xacro:if value="${model == 13}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS1-64-N2.urdf.xacro"/>
-    <xacro:OS1-64-N2 parent="top_plate_link" name="ouster">
-      <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS1-64-N2>
-  </xacro:if>
-  <xacro:if value="${model == 14}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS2-64-N2.urdf.xacro"/>
-    <xacro:OS2-64-N2 parent="top_plate_link" name="ouster">
-      <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS2-64-N2>
-  </xacro:if>
-  <xacro:if value="${model == 15}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS0-64-N2.urdf.xacro"/>
-    <xacro:OS0-64-N2 parent="top_plate_link" name="ouster">
-      <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS0-64-N2>
-  </xacro:if>
-
-  <xacro:if value="${model == 16}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS1-32-N2.urdf.xacro"/>
-    <xacro:OS1-32-N2 parent="top_plate_link" name="ouster">
-      <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS1-32-N2>
-  </xacro:if>
-  <xacro:if value="${model == 17}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS2-32-N2.urdf.xacro"/>
-    <xacro:OS2-32-N2 parent="top_plate_link" name="ouster">
-      <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS2-32-N2>
-  </xacro:if>
-  <xacro:if value="${model == 18}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS0-32-N2.urdf.xacro"/>
-    <xacro:OS0-32-N2 parent="top_plate_link" name="ouster">
-      <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS0-32-N2>
-  </xacro:if>
-
-  <xacro:property name="model" value="$(arg OUSTER_OS)"/>
-  <xacro:if value="${model == 19}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS1-128-N3.urdf.xacro"/>
-    <xacro:OS1-128-N3 parent="top_plate_link" name="ouster">
-      <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS1-128-N3>
-  </xacro:if>
-  <xacro:if value="${model == 20}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS2-128-N3.urdf.xacro"/>
-    <xacro:OS2-128-N3 parent="top_plate_link" name="ouster">
-      <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS2-128-N3>
-  </xacro:if>
-  <xacro:if value="${model == 21}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS0-128-N3.urdf.xacro"/>
-    <xacro:OS0-128-N3 parent="top_plate_link" name="ouster">
-      <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS0-128-N3>
-  </xacro:if>
-
-  <xacro:if value="${model == 22}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS1-64-N3.urdf.xacro"/>
-    <xacro:OS1-64-N3 parent="top_plate_link" name="ouster">
-      <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS1-64-N3>
-  </xacro:if>
-  <xacro:if value="${model == 23}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS2-64-N3.urdf.xacro"/>
-    <xacro:OS2-64-N3 parent="top_plate_link" name="ouster">
-      <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS2-64-N3>
-  </xacro:if>
-  <xacro:if value="${model == 24}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS0-64-N3.urdf.xacro"/>
-    <xacro:OS0-64-N3 parent="top_plate_link" name="ouster">
-      <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS0-64-N3>
-  </xacro:if>
-
-  <xacro:if value="${model == 25}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS1-32-N3.urdf.xacro"/>
-    <xacro:OS1-32-N3 parent="top_plate_link" name="ouster">
-      <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS1-32-N3>
-  </xacro:if>
-  <xacro:if value="${model == 26}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS2-32-N3.urdf.xacro"/>
-    <xacro:OS2-32-N3 parent="top_plate_link" name="ouster">
-      <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS2-32-N3>
-  </xacro:if>
-  <xacro:if value="${model == 27}">
-    <xacro:include filename="$(find ouster_description)/urdf/OS0-32-N3.urdf.xacro"/>
-    <xacro:OS0-32-N3 parent="top_plate_link" name="ouster">
-      <origin xyz="0 0 0.075" rpy="0 0 0" />
-    </xacro:OS0-32-N3>
+    </xacro:OSD-128>
   </xacro:if>
 
 
