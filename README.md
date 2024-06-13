@@ -1,8 +1,11 @@
+Simulation env. based on Clearpath's Husky -> [husky_customization](https://github.com/husky/husky_customization).
 
 ## Using PQM Simulator
 
-- Extract the models from the `worlds/pqm_models.zip` into the `~/.gazebo/models` folder
+- Install the husky simulator from [here](http://wiki.ros.org/Robots/Husky). The pqm version will not work if the required URDFs and controllers from base husky are not present
+- Extract the models from the `worlds/pqm_models.zip` into the `~/.gazebo/models` folder. Make this folder if it doesn't exist
 - Build and source this package
+- Export env variables (see below) with the required sensors. For traditional applications use the OS-0 128 (env=12) channel LiDAR with no camera.
 - To run the simulator, use the command <br>
     - Warehouse: `roslaunch husky_pqm pqm_warehouse.launch`
     - Mai City: `roslaunch husky_pqm pqm_mai.launch`
@@ -22,7 +25,7 @@
 
 Removed OS-D
 
- Env Variable | Sensor  | Noise | Beams    |
+ Env Variable | Sensor  | Beams | Noise    |
 | ------------- | ------------- | ------------- | ------------- |
 | 1  | OS-1 |  128 | 0.008
 | 2  | OS-2 | 128 | 0.008
@@ -63,7 +66,7 @@ Disable Camera and LiDAR using `export HUSKY_BLACKFLY=0` `export HUSKY_OUSTER=0`
 ![OS-3](images/OS_3.png)
 <!--![OS-D](images/OS_D.png)-->
 
-Simulation env. based on Clearpath's Husky -> [husky_customization](https://github.com/husky/husky_customization).
+
 
 <!-- husky
 =====
